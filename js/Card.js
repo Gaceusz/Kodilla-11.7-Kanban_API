@@ -20,6 +20,7 @@ function Card(id, name) {
         return card;
     }
 }
+
 Card.prototype = {
     removeCard: function() {
         var self = this;

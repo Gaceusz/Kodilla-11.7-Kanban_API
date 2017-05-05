@@ -34,25 +34,26 @@ function Column(id, name) {
             });
         });
 
-        column.append(columnTitle)
-            .append(columnDelete)
-            .append(columnAddCard)
-            .append(columnCardList);
-            return column;
-        }
+    column.append(columnTitle)
+        .append(columnDelete)
+        .append(columnAddCard)
+        .append(columnCardList);
+        return column;
     }
+}
+
 Column.prototype = {
     createCard: function(card) {
       this.element.children('ul').append(card.element);
     },
     deleteColumn: function() {
-      var self = this;
-      $.ajax({
-        url: baseUrl + "/column/" + self.id,
-        method: "DELETE",
-        success: function(response) {
-            self.element.remove();
-        }
-      })
+        var self = this;
+        $.ajax({
+            url: baseUrl + "/column/" + self.id,
+            method: "DELETE",
+            success: function(response) {
+                self.element.remove();
+            }
+        })
     }
 };
